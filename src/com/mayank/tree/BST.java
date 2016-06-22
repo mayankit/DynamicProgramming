@@ -125,6 +125,18 @@ public class BST {
 			}
 		}
 	}
+	
+	public  Node leastCommonAncestor(Node root,int num1,int num2){
+		if(root == null)
+			return null;
+		if( root.value > num1 && root.value > num2  && root.left != null){
+			return leastCommonAncestor(root.left,num1,num2);
+		}else if(root.value < num1 && root.value < num2 && root.right != null){
+			return leastCommonAncestor(root.right,num1,num2);
+		}
+		
+		return root;
+	}
 
 
 
@@ -144,6 +156,8 @@ public class BST {
 		}
 
 	}
+	
+	
 
 	public static void main(String[] args) {
 		BST bst = new BST();
@@ -157,8 +171,8 @@ public class BST {
 
 		root = bst.addNode(root, 8);
 
-		bst.postOrder(root);
-		bst.iterativePostOrder(root);
+		Node node = bst.leastCommonAncestor(root,3,6);
+		System.out.println(node.value);
 	}
 
 }
