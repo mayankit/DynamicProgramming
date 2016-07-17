@@ -4,6 +4,7 @@ import java.util.Stack;
 
 public class BST {
 
+	//This method add new node to bst and return root node
 	public Node addNode(Node root,int num){
 		Node child = new Node(num);
 		if(root == null){
@@ -28,7 +29,8 @@ public class BST {
 
 		return root;
 	}
-
+    //this method will return pre order traversal of a bst
+	// root-left-right
 	public void preOrder(Node root){
 		if(root == null)
 			return;
@@ -41,7 +43,7 @@ public class BST {
 		}
 	}
 
-	//DFS
+	//DFS : iterative solution of preorder using stack
 	public void iterativePreOrder(Node root){
 		if(root == null)
 			return;
@@ -57,6 +59,8 @@ public class BST {
 		}
 	}
 
+	//this method will return in order traversal of a bst
+	// left-root-right
 	public void inOrder(Node root){
 		if(root == null)
 			return;
@@ -70,7 +74,7 @@ public class BST {
 		}
 	}
 
-	//DFS
+	//DFS : iterative solution of inorder using stack
 	public void iterativeInOrder(Node root){
 
 		Stack<Node> stack = new Stack<>();
@@ -86,7 +90,8 @@ public class BST {
 		}
 	}
 
-
+	//this method will return post order traversal of a bst
+    // left-right-root
 	public void postOrder(Node root){
 		if(root == null)
 			return;
@@ -100,7 +105,7 @@ public class BST {
 		System.out.print(root.value);
 	}
 
-	//DFS
+	//DFS : iterative solution of post order using stack
 	public void iterativePostOrder(Node root){
 
 		Stack<Node> stack = new Stack<>();
@@ -126,6 +131,7 @@ public class BST {
 		}
 	}
 	
+	//This method will return least common ancestor of two node/nums in bst
 	public  Node leastCommonAncestor(Node root,int num1,int num2){
 		if(root == null)
 			return null;
@@ -137,7 +143,8 @@ public class BST {
 		
 		return root;
 	}
-
+	
+	
 
 
 	private static class Node{
