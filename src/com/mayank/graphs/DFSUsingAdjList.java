@@ -2,19 +2,19 @@ package com.mayank.graphs;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Queue;
+import java.util.Stack;
 
+import javax.swing.DefaultButtonModel;
 
-public class GraphAdjList extends Graph{
+public class DFSUsingAdjList extends Graph{
 	
-	private Map<Integer,List<Integer>> adjListMap;
+private Map<Integer,List<Integer>> adjListMap;
 
 	
 	
-	public GraphAdjList() {
+	public DFSUsingAdjList() {
 		super();
 		this.adjListMap = new HashMap<>();
 	}
@@ -49,7 +49,7 @@ public class GraphAdjList extends Graph{
 	}
 
 	public static void main(String[] args) {
-		GraphAdjList graph = new GraphAdjList();
+		DFSUsingAdjList graph = new DFSUsingAdjList();
 		graph.addVertex();
 		graph.addVertex();
 		graph.addVertex();
@@ -61,15 +61,41 @@ public class GraphAdjList extends Graph{
 		graph.addEdge(2, 3);
 		graph.addEdge(3, 3);
 		System.out.println(graph);
+		graph.DFS(2);
+	}
+	
+	public void DFS(int s) {
+		boolean visited[] = new boolean[this.getNumVertices()];
+		 Stack<Integer> stack = new Stack<>();
+		
+		visited[s] = true;
+		stack.add(s);
+		
+		DFSUtil(visited, stack);
+	}
+	
+	private void DFSUtil(boolean[] visited,Stack<Integer> stack){
+		
+		while(!stack.isEmpty()){
+			Integer elem = stack.pop();
+			System.out.print(elem);
+			
+			List<Integer> nextList = adjListMap.get(elem);
+			for(Integer edge : nextList){
+				
+				if(visited[edge] != true){
+					visited[edge] = true;
+					stack.push(edge);
+					DFSUtil(visited,stack);
+				}
+			}
+			
+		}
 	}
 
 	@Override
 	public String toString() {
-		return "GraphAdjList [adjListMap=" + adjListMap + "]";
+		return "BFSUsingAdjList [adjListMap=" + adjListMap + "]";
 	}
-
-	
-	
-	
 
 }

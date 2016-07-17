@@ -1,6 +1,7 @@
 package com.mayank.graphs;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class GraphAdjMatrix  extends Graph{
@@ -64,8 +65,21 @@ public class GraphAdjMatrix  extends Graph{
 		graph.addVertex();
 		graph.addVertex();
 		graph.addVertex();
+		graph.addEdge(0, 1);
+		graph.addEdge(0, 2);
 		graph.addEdge(1, 2);
+		graph.addEdge(2, 0);
+		graph.addEdge(2, 3);
+		graph.addEdge(3, 3);
+		System.out.println(graph);
 	}
+
+	@Override
+	public String toString() {
+		return "GraphAdjMatrix [adjMatrix=" + Arrays.toString(adjMatrix) + "]";
+	}
+	
+	
 
 	
 	
