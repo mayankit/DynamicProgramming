@@ -2,15 +2,13 @@ package com.mayank.sorting;
 
 public class SelectionSort {
 	public static void main(String[] args) {
-		int arr[] = {64,40,12,22,11};
+		int arr[] = {64,25,12,22,11};
 		
-		int sortedArr[]  = selectionSort(arr);
-		for(int x : sortedArr){
-			System.out.print(x+" ");
-		}
+		printArray(arr);
+		selectionSort(arr);
 	}
 
-	private static int[] selectionSort(int[] arr) {
+	private static void selectionSort(int[] arr) {
 		for(int i=0;i< arr.length;i++){
 			
 			int minIndex = i;
@@ -20,15 +18,23 @@ public class SelectionSort {
 					minIndex = j;
 				}
 			}
-			swap(i,minIndex,arr);
+			swap(arr,i,minIndex);
+			printArray(arr);
 		}
-		return arr;
 	}
 
-	private static void swap(int i, int minIndex, int[] arr) {
-		int temp = arr[minIndex];
-		arr[minIndex] = arr[i];
-		arr[i] = temp;
+	private static void swap(int[] arr, int j, int i) {
+	    int temp = arr[j];
+	    arr[j]= arr[i];
+	    arr[i] = temp;
+	}
+
+	private static void printArray(int[] arr) {
+		for(int x : arr){
+			System.out.print(x+" ");
+		}
+		System.out.println();
+		
 	}
 
 }
