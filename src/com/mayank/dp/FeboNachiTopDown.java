@@ -19,9 +19,9 @@ public class FeboNachiTopDown {
 		
 		if(num ==0 || num ==1){
 			lookUp[num] = 1;
-		}
-		
+		}else{	
 		lookUp[num] = fibo(lookUp,num-1) + fibo(lookUp,num-2);
+		}
 		
 		return lookUp[num];
 	}
